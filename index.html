@@ -36,6 +36,12 @@ h1{
     font-size:20px;
     opacity:0.8;
 }
+
+#host{
+    font-size:18px;
+    margin-top:10px;
+    opacity:0.7;
+}
 </style>
 </head>
 
@@ -45,6 +51,7 @@ h1{
     <h1>Hello World 👋</h1>
     <div id="time"></div>
     <div id="date"></div>
+    <div id="host"></div>
 </div>
 
 <script>
@@ -59,8 +66,11 @@ function updateTime(){
         day: 'numeric'
     });
 
+    const host = window.location.hostname;
+
     document.getElementById("time").textContent = time;
     document.getElementById("date").textContent = date;
+    document.getElementById("host").textContent = "Host: " + host;
 }
 
 setInterval(updateTime, 1000);
