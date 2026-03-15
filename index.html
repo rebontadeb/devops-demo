@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hello World</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#111;
+    color:white;
+    display:flex;
+    height:100vh;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.container{
+    background:#222;
+    padding:40px;
+    border-radius:10px;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+h1{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+#time{
+    font-size:28px;
+}
+
+#date{
+    font-size:20px;
+    opacity:0.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Hello World 👋</h1>
+    <div id="time"></div>
+    <div id="date"></div>
+</div>
+
+<script>
+function updateTime(){
+    const now = new Date();
+
+    const time = now.toLocaleTimeString();
+    const date = now.toLocaleDateString(undefined, {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+
+    document.getElementById("time").textContent = time;
+    document.getElementById("date").textContent = date;
+}
+
+setInterval(updateTime, 1000);
+updateTime();
+</script>
+
+</body>
+</html>
